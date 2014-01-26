@@ -5,7 +5,7 @@
   },
   
   "extDescription": {
-    "message": "Get the lyrics of any song on YouTube\u2122, Last.fm\u2122, Grooveshark\u2122 and Google Music\u2122, without annoying popups!",
+    "message": "Get the lyrics of any song on YouTube\u2122, Last.fm\u2122, Grooveshark\u2122 and Google Play\u2122, without annoying popups!",
     "description": "Description of the plugin"
   },
   
@@ -129,6 +129,11 @@
     "description": "[+1] this proejct"
   },
   
+  "flattr_locale": {
+    "message": "en_EN",
+    "description": "Flattr can be translated automatically by providing the right locale"
+  },
+  
   "changeLyrics": {
     "message": "Change lyrics",
     "description": "Message to change the current lyrics -- brings you to the search form"
@@ -165,7 +170,7 @@
   },
   
   "tryThePopup": {
-    "message": "Try the new popup!",
+    "message": "Try the renewed popup! (again)",
     "description": "Is shown above the lyrics in some cases"
   },
   
@@ -174,6 +179,11 @@
   },
   
   "new": {
-    "message": "new!"
+    "message": "renewed!"
+  },
+  
+  "donate_text": {
+    "message": "Please donate to support me (:",
+    "description": "Under the YouTube lyrics currently"
   }
 }

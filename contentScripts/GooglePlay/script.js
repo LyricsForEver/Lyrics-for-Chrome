@@ -39,17 +39,17 @@ LyricsPlugin.prototype.init = function(){
         '<div id="lfc-minimize-lyrics" class="newPlaylistBtn target" title="',
           chrome.i18n.getMessage('minimizeLyrics'),
         '" style="background-image: url(', 
-          chrome.extension.getURL('contentScripts/GoogleMusic/minimize.png'), 
+          chrome.extension.getURL('contentScripts/GooglePlay/minimize.png'), 
         ');"></div>',
         '<div id="lfc-refresh-lyrics" class="newPlaylistBtn target" title="',
           chrome.i18n.getMessage('refreshLyrics'),
         '" style="background-image: url(', 
-          chrome.extension.getURL('contentScripts/GoogleMusic/refresh.png'), 
+          chrome.extension.getURL('contentScripts/GooglePlay/refresh.png'), 
         ');"></div>',
         '<div id="lfc-change-lyrics" class="newPlaylistBtn target" title="',
           chrome.i18n.getMessage('changeLyrics'),
         '" style="background-image: url(', 
-          chrome.extension.getURL('contentScripts/GoogleMusic/edit.png'), 
+          chrome.extension.getURL('contentScripts/GooglePlay/edit.png'), 
         ');"></div>',
         'LYRICS',
       '</div>',
@@ -151,9 +151,7 @@ LyricsPlugin.prototype.init = function(){
   });
   
   this.searchIntervalCallback = function(){
-    var titleFromPage = self.getTitleFromPage();
-    
-    if(titleFromPage && titleFromPage !== self.currentLyrics.originalTitle){
+    if(self.songHasChanged()){
       self.setTitleFromPage();
       self.queryLyrics();
     }

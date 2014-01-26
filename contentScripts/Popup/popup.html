@@ -6,17 +6,7 @@
   <meta itemprop="name" i18n-values="content:extName" content="Lyrics for Google Chrome™">
   <meta itemprop="description" i18n-values="content:extDescription" content="Get the lyrics of any song on YouTube™, Last.fm™, Grooveshark™ and Google Music™, without annoying popups!">
   <meta itemprop="image" content="https://lh6.googleusercontent.com/OgrJ7kKeK2FJv3jagcDn1LuJmLWBu4BFv29TJoKCS9Vo5835hVEMCU-tlhG-COW6MurS4L6W=s128-h128-e365">
-  <script>
-  // Google Analytics
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-23513852-3']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = 'https://ssl.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-  </script>
+  <script src="analytics.js"></script>
   <style type="text/css"> 
     
     div, p, h1, h2, h3, h4, h5, h6, ol, ul, li, dl, dt, dd, blockquote, q, small, sup, sub, code, pre, tt, samp, legend, label, table {
@@ -25,11 +15,14 @@
       line-height: 1em;
     }
     
+    html, body, #lfc-outerwrapper {
+      height: 100%;
+    }
+    
     body {
       font-family: Georgia, 'Times New Roman', serif;
-      font-size: .8em;
       background: #FAF0D9 url(../../images/backgroundnoise.png) repeat 0 0 scroll;
-      padding: 1em 0;
+      /*margin: 1em 20px;*/
       overflow: hidden;
     }
     
@@ -39,36 +32,13 @@
     
     #lfc-outerwrapper {
       margin: 0 auto;
-      width: 400px;
-      padding: 0 10px;
+      width: 800px;
       
       box-sizing: border-box;
-    }
-    
-    .getItTogetherTyrone {
-      max-height: 400px;
-      overflow-y: auto;
-    }
-    
-    .x-small #lfc-outerwrapper {
-      font-size: 0.8em;
-      line-height: 1.8;
-    }
-    
-    .small #lfc-outerwrapper {
-      font-size: 0.9em;
-    }
-    
-    .medium #lfc-outerwrapper {
-      font-size: 1em;
-    }
-    
-    .large #lfc-outerwrapper {
-      font-size: 1.1em;
-    }
-    
-    .x-large #lfc-outerwrapper {
-      font-size: 1.2em;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-box-pack: justify;
+      -webkit-transition: all .3s ease-out;
     }
     
     a:link, a:visited {
@@ -86,7 +56,7 @@
     }
     
     h1 {
-      line-height: 22px;
+      line-height: 26px;
       font-size: 1.3em;
       padding: 2px 0;
       border-bottom: 2px solid #eecdae;
@@ -105,16 +75,21 @@
       padding: 1.45em 10px 1.45em 1.45em;
       background: #FFF;
       border-radius: 4px;
+      -webkit-box-flex: 1;
+      overflow-y: auto;
     }
     
     header {
-      padding-left: 58px;
-      background: transparent url(../../images/icon48.png) no-repeat left center scroll;
-      min-height: 48px;
+      background: transparent url(../../images/icon128.png) no-repeat left center scroll;
+      min-height: 128px;
+      padding-left: 138px;
       display: -webkit-box;
+      box-sizing: border-box;
       -webkit-box-align: center;
-      width: 270px;
+      width: 100%;
       float: left;
+      -webkit-transition: all .3s ease-out;
+      background-size: contain;
     }
     
     aside {
@@ -122,10 +97,10 @@
       letter-spacing: .09em;
       margin-top: 1em;
       color: #707065;
-      text-align: right;
+      height: 60px;
     }
     
-    #lfc-lyrics-content, #article-author {
+    #lfc-lyrics-content, aside {
       line-height: 1.45em;
     }
     
@@ -214,26 +189,6 @@
       text-shadow: 0 1px 0 #000;
     }
     
-    #lfc-actions a:link, #lfc-actions a:visited {
-      border: 1px solid #eecdae;
-      display: block;
-      background: #FFF;
-      width: 22px;
-      height: 22px;
-      line-height: 22px;
-      margin-bottom: 2px;
-      text-align: center;
-      color: #707065;
-      -webkit-transition: background .25s ease-out;
-      font-size: 18px;
-    }
-    
-    
-    #lfc-actions a:hover, #lfc-actions a:active, #lfc-actions a:focus {
-      background: #FAF0D9;
-      text-decoration: none;
-    }
-    
     .v-center {
       width: 100%;
       position: relative;
@@ -295,40 +250,115 @@
       );
     }
     
-    #lfc-actions {
-      width: 27px;
-      float: right;
-      z-index: 1;
-    }
-    
     /* Let's get this party started */
     .getItTogetherTyrone {
       padding-right: 10px;
     }
     
-    .getItTogetherTyrone::-webkit-scrollbar {
+    ::-webkit-scrollbar {
       width: 8px;
+      margin: 0 10px;
     }
      
     /* Track */
-    .getItTogetherTyrone::-webkit-scrollbar-track {
+    ::-webkit-scrollbar-track {
       background: transparent;
+    }
+    
+    ::-webkit-scrollbar-track-piece {
+      background: rgba(212, 212, 212, .2);
+      
     }
      
     /* Handle */
-    .getItTogetherTyrone::-webkit-scrollbar-thumb {
+    ::-webkit-scrollbar-thumb {
       background: #d4d4d4;
     }
-    .getItTogetherTyrone::-webkit-scrollbar-thumb:hover {
+    :-webkit-scrollbar-thumb:hover {
       background: #a8a8a8;
     }
-    .getItTogetherTyrone::-webkit-scrollbar-thumb:window-inactive {
+    ::-webkit-scrollbar-thumb:window-inactive {
       background: rgba(255,0,0,0.4); 
+      -webkit-box-shadow: -1px 0 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    #pledgie-button-wrap {
+      float: left;
+      width: 70%;
+    }
+    
+    #pledgie-button-wrap a:link {
+      display: inline-block;
+      margin-right: 2px;
+    }
+    
+    #donate-text {
+      display: inline-block;
+      position: relative;
+      top: -6px;
+    }
+    
+    #google-plus {
+      float: right;
+      text-align: right;
+      width: 29%;
+      margin-top: 19px;
+    }
+    
+    #plus-one-text {
+      display: inline-block;
+      position: relative;
+      top: -3px;
     }
     
     .clearfix:before, .clearfix:after { content: ""; display: table; }
     .clearfix:after { clear: both; }
     .clearfix { zoom: 1; }
+    
+    @media only screen and (max-width: 959px) {
+      #lfc-outerwrapper {
+        width: 600px;
+      }
+      
+      header {
+        background: transparent url(../../images/icon48.png) no-repeat left center scroll;
+        padding-left: 58px;
+        min-height: 48px;
+        background-size: auto;
+      }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 959px) {}
+
+    @media only screen and (max-width: 767px) {
+      #lfc-outerwrapper {
+        width: 400px;
+      }
+      
+      aside {
+        font-size: 12px;
+      }
+    }
+
+    /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+    @media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+    /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+    @media only screen and (max-width: 479px) {
+      #lfc-outerwrapper {
+        width: 300px;
+      }
+      
+      body {
+        font-size: .9em;
+      }
+      
+      #lfc-search-input, #lfc-submit-button {
+        font-size: 1em;
+        padding: .5em;
+        border-radius: 4px;
+      }
+    }
   </style> 
 </head> 
 <body> 
@@ -340,13 +370,6 @@
           <p><a href="#" id="lfc-changeLyrics" i18n-content="changeLyrics" i18n-values="title:changeLyrics" title="Change lyrics">Change lyrics</a></p>
         </div>      
       </header>
-      
-      <section id="lfc-actions">
-        <p class="center">
-          <a href="#increase" id="increase-text-size" i18n-values="title:largerText">+</a> 
-          <a href="#decrease" id="decrease-text-size" i18n-values="title:smallerText">-</a>
-        </p>
-      </section>
     </div>
     
     <section id="lfc-innerwrapper" class="drop-shadow curved curved-vt-2" role="main">
@@ -372,10 +395,11 @@
       </div>
     </section>
     
-    <aside>
-      <span id="article-author" class="author">
-        <g:plusone size="small" href="https://chrome.google.com/webstore/detail/oglbipcbkmlknhfhabolnniekmlhfoek" annotation="none"></g:plusone> <span i18n-content="plusOneThisPlease">this project!</span>
-      </span>
+    <aside class="clearfix">
+      <div id="pledgie-button-wrap"><a href="http://www.pledgie.com/campaigns/18436"><img alt="Click here to lend your support to: Lyrics for Google Chrome\u2122 and make a donation at www.pledgie.com !" src="http://www.pledgie.com/campaigns/18436.png?skin_name=chrome" border="0" /></a><span id="donate-text" i18n-content="donate_text">Please donate</span></div>
+      <div id="google-plus">
+        <g:plusone size="small" href="https://chrome.google.com/webstore/detail/oglbipcbkmlknhfhabolnniekmlhfoek" annotation="none"></g:plusone> <span id="plus-one-text" i18n-content="plusOneThisPlease">this project!</span>
+      </div>
     </aside>
   </article>
   
@@ -383,48 +407,6 @@
   <script src="../../javascripts/lyricsPlugin.js"></script>
   <script src="../../javascripts/i18n.js"></script>
   <script src="script.js"></script>
-  <script>
-    i18n.process(document);
-    
-    function init(){
-      var bodyClasses = ['x-small', 'small', 'medium', 'large', 'x-large'], 
-          currentIndex = 2,
-          $body = $('body');
-      
-      
-      $('#increase-text-size').click(function(){
-        if(currentIndex + 1 === bodyClasses.length){
-          return;
-        }
-        
-        $body.removeClass(bodyClasses[currentIndex++]).addClass(bodyClasses[currentIndex]);
-        
-        return false;
-      });
-      
-      $('#decrease-text-size').click(function(){
-        if(currentIndex === 0){
-          return;
-        }
-        
-        $body.removeClass(bodyClasses[currentIndex--]).addClass(bodyClasses[currentIndex]);
-        return false;
-      });
-      
-      // Translate +1
-      window.___gcfg = {lang: chrome.i18n.getMessage('plusone_locale')};
-      
-      // Init +1
-      (function() {
-        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-        po.src = 'https://apis.google.com/js/plusone.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-      })();
-    }
-    
-    window.onload = function(){
-      setTimeout(init, 0);
-    };
-  </script>
+  <script src="extras.js"></script>
 </body> 
 </html>

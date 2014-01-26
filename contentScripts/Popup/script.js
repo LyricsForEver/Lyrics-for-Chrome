@@ -58,14 +58,15 @@ LyricsPlugin.prototype.handleNewTitle = function(title){
 var LP = new LyricsPlugin();
 LP.init();
 
-chrome.tabs.getSelected(null, function(tab){
-  
-  // Send info to Google Analytics
-  _gaq.push(['_trackEvent', 'Usage', 'Page action', tab.url.split('/', 3).join('/')]);
-  
-  // Get the right lyrics
-  chrome.tabs.sendRequest(tab.id, {action: 'getLyricsTitle'}, function(data){
-    LP.handleNewTitle(data.title);
-    LP.onPageActionClicked(data.onlyRequery);
-  });
+chrome.extension.onRequest.addListener(function(request, sender, callback) {
+  switch(request.action){
+    case 'initNewTab':
+      LP.handleNewTitle(request.title);
+      LP.onPageActionClicked(request.onlyRequery);
+    break;
+    case 'showLyricsOnPage':
+      LP.onPageActionClicked(request.onlyRequery);
+    break;
+  }
 });
+  

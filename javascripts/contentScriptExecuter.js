@@ -14,5 +14,11 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
       // Send the title of song to the background page
       callback({title: LP.setTitleFromPage()});
     break;
+    case 'songChanged':
+      callback({
+        hasChanged: LP.songHasChanged(),
+        title: LP.setTitleFromPage()
+      });
+    break;
   }
 });

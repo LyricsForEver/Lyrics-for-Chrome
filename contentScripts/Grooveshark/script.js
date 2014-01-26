@@ -1,8 +1,9 @@
 LyricsPlugin.prototype.getTitleFromPage = function(){
   // Set the video's title
-  var song = $('#playerDetails_nowPlaying .song').text(),
-      artist = $('#playerDetails_nowPlaying .artist').text();
-      
+  var song = $('#now-playing-metadata .song').attr("title"),
+      artist = $('#now-playing-metadata .artist').attr("title");
+  
+  // Return false if nothing is playing
   if(song.length === 0 && artist.length === 0){
     return false;
   }
@@ -12,10 +13,10 @@ LyricsPlugin.prototype.getTitleFromPage = function(){
 
 LyricsPlugin.prototype.setTitleFromPage = function(){
   // Set the video's title
-  var song = $('#playerDetails_nowPlaying .song').text(),
-      artist = $('#playerDetails_nowPlaying .artist').text();
+  var song = $('#now-playing-metadata .song').attr("title"),
+      artist = $('#now-playing-metadata .artist').attr("title");
       
-  if(song.length === 0 && artist.length === 0){
+  if(!song || song.length === 0 || !artist || artist.length === 0){
     this.currentLyrics.title = "";
   } else {
     this.currentLyrics.title = song + ' - ' + artist;
@@ -28,18 +29,6 @@ LyricsPlugin.prototype.setTitleFromPage = function(){
 
 LyricsPlugin.prototype.init = function(){
   var lyricsHTML, lyricsObj, self = this;
-  var imageUrl = chrome.extension.getURL("contentScripts/Grooveshark/grooveshark-lyrics.png");
-  var li = $('<li id="lfc_header_nav_lyrics" class="lyrics" />');
-  var link = $('<a href="/#/user" id="lfc-lyrics-menu-button"></a></li>').css('background-image', 'url(' + imageUrl + ')');
-  
-  li.append(link);
-  
-  // Add a lyrics button to the menu
-  $('#nav').bind("DOMSubtreeModified", function(){
-    if($('#lfc_header_nav_lyrics').length === 0 && $(this).children().length > 0){
-      $(this).append(li);
-    }
-  });
 
   // Set the video's title
   this.setTitleFromPage();
@@ -48,28 +37,25 @@ LyricsPlugin.prototype.init = function(){
   this.hasMaxHeight = false;
   
   this.setSongTitleInFlashMessage = true;
-  
+
   lyricsHTML = [
-    '<div id="page" class="gs_page_popular">',
-      '<div id="page_header">',
+    '<div class="lfc-wrap lfc-new-gs">',
+      '<div id="page-header" class="no-separator">',
         '<div class="meta">',
           '<h3 id="lfc-flash-message">',
             
           '</h3>',
         '</div>',
         '<div class="page_options">',
-          '<button id="lfc-refresh-lyrics" class="btn btn_style2" type="button"><div><span class="label">',
+          '<button id="lfc-refresh-lyrics" class="btn" type="button">',
             chrome.i18n.getMessage('refreshLyrics'),
-          '</span></div></button>',
-          '<button id="lfc-change-lyrics" class="btn btn_style2" type="button"><div><span class="label">',
+          '</button>',
+          '<button id="lfc-change-lyrics" class="btn" type="button">',
             chrome.i18n.getMessage('changeLyrics'),
-          '</span></div></button>',
+          '</button>',
         '</div>',
-        '<div class="clear"></div>',
-        '<div class="highlight"></div>',
-        '<div class="shadow"></div>',
       '</div>',
-      '<div id="page_content">',
+      '<div class="column1">',
         '<div id="lfc-flash-wrap">',
           '<p id="lfc-flash-description"></p>',
         '</div>',
@@ -83,31 +69,23 @@ LyricsPlugin.prototype.init = function(){
         '</div>',
         
         '<form id="lfc-search-form" class="search">',
-          '<div class="field">',
-            '<div class="textarea_wrapper clear">',
-              '<div class="top"><div class="cap"></div></div>',
-              '<div class="inner">',
-                '<div class="cap">',
-                  '<input type="text" id="lfc-search-lyrics" class="search"/>',
-                '</div>',
-              '</div>',
-              '<div class="bottom"><div class="cap"></div></div>',
-            '</div>',
-          '</div>',
+          '<p><input type="text" id="lfc-search-lyrics" class="search"/></p>',
 
-          '<button type="submit" id="lfc-search-button" class="btn btn_style4"><div><span>',
+          '<p><button type="submit" id="lfc-search-button" class="btn">',
             chrome.i18n.getMessage('find'),
-          '</span></div></button>',
-          '<div class="clear"></div>',
+          '</button></p>',
         '</form>',
-    '</div>'
-  ].join('');
-  
+      '</div>',
+      '<p class="lfc-donate-area">',
+        '<a href="http://www.pledgie.com/campaigns/18436"><img alt="Click here to lend your support to: Lyrics for Google Chrome\u2122 and make a donation at www.pledgie.com !" src="http://www.pledgie.com/campaigns/18436.png?skin_name=chrome" border="0" /></a>',
+      '</p>',
+    '</div>'].join('');
+
   // The div that holds everything
   this.elements.outerWrapper = lyricsObject = $(lyricsHTML);
   
   // The div that holds the actual content (no headers)
-  this.elements.innerWrapper = $('#page_content', lyricsObject);
+  this.elements.innerWrapper = $('.column1', lyricsObject);
   
   // Loading message wrapper
   this.elements.loadingMessage = $('#lfc-loading-message', lyricsObject);
@@ -152,9 +130,7 @@ LyricsPlugin.prototype.init = function(){
   });
   
   this.addToPage = function(){
-    document.title = chrome.i18n.getMessage('extName') + ' - Grooveshark';
-    $('#page').html('').append(lyricsObject);
-    $('#page_content').height($('#page_wrapper').height() - $('#theme_page_header').height() - $('#page_header').height());
+    $('#page-content').html('').append(lyricsObject);
   }
   
   // Add it to the page

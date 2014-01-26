@@ -85,3 +85,16 @@
   background: #BB7;
   color: white;
 }
+
+.lfc-new-gs #lfc-flash-description {
+  margin: 0;
+}
+
+.lfc-new-gs #lfc-search-form {
+  margin-top: 1em;
+}
+
+.lfc-donate-area {
+  clear: both;
+  padding-top: 1em;
+}

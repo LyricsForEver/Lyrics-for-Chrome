@@ -5,7 +5,7 @@
   },
   
   "extDescription": {
-    "message": "Veja as letras de quaisquer músicas no YouTube\u2122, Last.fm\u2122, Grooveshark\u2122 e Google Music\u2122, sem popups irritantes!",
+    "message": "Veja as letras de quaisquer músicas no YouTube\u2122, Last.fm\u2122, Grooveshark\u2122 e Google Play\u2122, sem popups irritantes!",
     "description": "Description of the plugin"
   },
   
@@ -129,6 +129,11 @@
     "description": "[+1] this proejct"
   },
   
+  "flattr_locale": {
+    "message": "pt_PT",
+    "description": "Flattr can be translated automatically by providing the right locale"
+  },
+  
   "changeLyrics": {
     "message": "Alterar para outra letra",
     "description": "Message to change the current lyrics -- brings you to the search form"
@@ -165,7 +170,7 @@
   },
   
   "tryThePopup": {
-    "message": "Try the new popup!",
+    "message": "Try the renewed popup!",
     "description": "Is shown above the lyrics in some cases"
   },
   
@@ -174,6 +179,11 @@
   },
   
   "new": {
-    "message": "new!"
+    "message": "renewed!"
+  },
+  
+  "donate_text": {
+    "message": "Please donate to support me (:",
+    "description": "Under the YouTube lyrics currently"
   }
 }

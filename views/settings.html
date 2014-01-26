@@ -3,17 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Options - Lyrics for Google Chrome</title>
-  <script>
-  // Google Analytics
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-23513852-3']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = 'https://ssl.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-  </script>
+  <script src="analytics.js"></script>
   <style>
     * {
       margin: 0;
@@ -162,118 +152,6 @@
   
   <script src="../javascripts/i18n.js"></script>
   <script src="../javascripts/jquery-1.6.1.min.js"></script>
-  <script>
-    i18n.process(document);
-    
-    /**
-     * If the display settings change, you might want to
-     * add or remove the popup for all tabs
-     */
-    function addOrRemovePopup(add){
-      var url = add ? 'contentScripts/Popup/popup.html' : '';
-      
-      // Get all windows
-      chrome.windows.getAll({populate: true}, function(windows){
-      
-        // Iterate over all windows
-        windows.forEach(function(win){
-        
-          // Iterate over each tab
-          win.tabs.forEach(function(tab){
-          
-            // Set or remove a popup
-            chrome.pageAction.setPopup({
-              tabId: tab.id,
-              popup: url
-            });
-          });
-        });
-      });
-    }
-    
-    function toggle(slide){
-      if($('[name=lyricsType]:checked').prop('id') === 'new-tab'){
-        if(slide){
-          $('#new-tab-extra-options').slideDown();
-        } else {
-          $('#new-tab-extra-options').show();
-        }
-      } else {
-        if(slide){
-          $('#new-tab-extra-options').slideUp();
-        } else {
-          $('#new-tab-extra-options').hide();
-        }
-      }
-    }
-    
-    if(localStorage['showLyricsType'] === 'onPage'){
-      $('#current-tab').attr('checked', 'checked');
-    } else if(localStorage['showLyricsType'] === 'popup'){
-      $('#in-popup').attr('checked', 'checked');
-    } else {
-      $('#new-tab').attr('checked', 'checked');
-    }
-    
-    if(localStorage['tabType'] === 'pinned'){
-      $('#new-tab-pinned').attr('checked', 'checked');
-    } else {
-      $('#new-tab-normal').attr('checked', 'checked');
-    }
-    
-    $('[name=lyricsType]').change(function(){
-      toggle(true)
-    });
-    
-    toggle(false);
-    
-    $('#settings').submit(function(){
-      
-      var selected = $('[name=lyricsType]:checked');
-      
-      if(selected.length === 0){
-        return;
-      }
-      
-      switch(selected.val()){
-        case 'current-tab':
-          localStorage['showLyricsType'] = 'onPage';
-          addOrRemovePopup(false);
-        break;
-        case 'new-tab':
-          localStorage['showLyricsType'] = 'newTab';
-          addOrRemovePopup(false);
-        break;
-        case 'in-popup':
-          localStorage['showLyricsType'] = 'popup';
-          addOrRemovePopup(true);
-        break;
-      }
-      
-      selected = $('[name=pinned]:checked');
-      
-      if(selected.length === 0){
-        return;
-      }
-      
-      if(selected.val() === '1'){
-        localStorage['tabType'] = 'pinned';
-      } else {
-        localStorage['tabType'] = 'normal';
-      }
-      
-      alert(chrome.i18n.getMessage('settingsSaved'));
-      
-      return false;
-    });
-    
-    $('#show-lyrics-type-cancel').click(function(){
-      chrome.tabs.getCurrent(function(tab){
-        chrome.tabs.remove(tab.id);
-      });
-      
-      return false;
-    });
-  </script>
+  <script src="translate.js"></script>
 </body>
 </html>

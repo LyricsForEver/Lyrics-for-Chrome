@@ -1,77 +1,78 @@
 ﻿{
   "extName": {
-    "message": "Lyrics voor Google Chrome\u2122",
+    "message": "Lyrics f\u00FCr Google Chrome\u2122",
     "description": "Title of the plugin"
   },
   
   "extDescription": {
-    "message": "Lees de tekst van elk liedje op YouTube\u2122, Last.fm\u2122, Grooveshark\u2122 en Google Play\u2122, zonder vervelende popups!",
+    "message": "Lees de tekst van elk liedje op YouTube\u2122, Last.fm\u2122, Grooveshark\u2122 en Google Play\u2122, zonder vervelende Pop-ups!",
+    "message": "Lesen Sie den Text zu jedem Song auf YouTube\u2122, Last.fm\u2122, Grooveshark\u2122 und Google Play\u2122, ohne \u00E4rgerlichen Pop-ups!",
     "description": "Description of the plugin"
   },
   
   "pageActionTitle": {
-    "message": "Lyrics erbij zoeken",
-    "description": "Text in small popup when you hover the page action icon"
+    "message": "Lyrics suchen",
+    "description": "Text in small Pop-up when you hover the page action icon"
   },
   
   "loadingMessage": {
-    "message": "Lyrics aan het opzoeken; even geduld!",
+    "message": "Lyrics suchen... Warte bitte!",
     "description": "Message when a lyrics is loading"
   },
   
   "copyrightInfo": {
-    "message": "Op de lyrics rust een copyright",
+    "message": "Die Lyrics sind Eigentum der jeweiligen Rechteinhaber.",
     "description": "First line of the copyright text after the lyrics"
   },
   
   "copyrightCourtesy": {
-    "message": "Lyrics zijn eigendom van <a href=\"http://lyrics.wikia.com\" title=\"LyricsWiki\">LyricWiki</a>",
+    "message": "Die Lyrics sind Eigentum der <a href=\"http://lyrics.wikia.com\" title=\"LyricsWiki\">LyricWiki</a>",
     "description": "Second line of the copyright with a link to LyricsWiki"
   },
   
   "notFound": {
-    "message": "Geen lyrics gevonden.",
+    "message": "Keine Lyrics gefunden.",
     "description": "Message shown when no lyrics was found"
   },
   
   "notFoundHelp": {
-    "message": "Vul de <b>titel</b> en <b>artiest</b>, of een regel uit de tekst handmatig in: ",
+    "message": "Gebe die <b>Titel</b> und <b>K\u00FCnstler</b>, oder eine Textzeile manuell ein: ",
     "description": "Show a hint when searching for lyrics"
   },
   
   "searchHelp": {
-    "message": "Vul de <b>titel</b> en <b>artiest</b> in, of een regel uit de tekst: ",
+    "message": "F\u00FCllen Sie die <b>Titel</b> und <b>K\u00FCnstler</b>, oder eine Textzeile, aus: ",
     "description": "Show a hint when no lyrics were found"
   },
   
   "removeLyrics": {
-    "message": "Haal lyrics weg",
+    "message": "Entferne die Lyrics",
     "description": "The remove from page text"
   },
   
   "settingsTitle": {
-    "message": "Lyrics voor Chrome",
+    "message": "Lyrics f\u00FCr Chrome",
     "description": "Title of the settings page"
   },
   
   "settingsLyrics": {
-    "message": "Hoe wil je de lyrics hebben?",
+    "message": "Wie wollen Sie die Texte haben?",
     "description": "Option of settings page: lyrics display"
   },
   
   "addToPage": {
-    "message": "Op de pagina zelf plaatsen",
+    "message": "Auf der Seite selbst zeigen",
     "description": "Option 1: add lyrics to the page"
   },
   
   "openInNewTab": {
-    "message": "In een nieuw tabblad openen",
+    "message": "In einem neuen Tab \u00DFffnen",
     "description": "Option 2: open lyrics in a new tab page"
   },
   
   "inPopup": {
-    "message": "In een popup openen",
-    "description": "Option 3: open lyrics in a popup"
+    "message": "In einem Pop-up \u00DFffnen",
+    "description": "Option 3: open lyrics in a Pop-up"
   },
   
   "ok": {
@@ -80,110 +81,110 @@
   },
   
   "cancel": {
-    "message": "Annuleer",
+    "message": "Abbrechen",
     "description": "Cancel button"
   },
   
   "underConstruction": {
-    "message": "Let op: veranderingen hebben hier nog geen effect, omdat dit deel van de plugin nog onder construtie is. Als je goede ideeën hebt voor verdere ontwikkeling van de plugin, laat het dan even weten in de Google Webstore. Bedankt!",
+    "message": "Note: These changes won't have any effect right now. This part of the plugin is still under construction. If you have some good ideas about improvements for this plugin, feel free to add a comment at the Google Webstore. Thanks!",
     "description": "Under construction message in the options page."
   },
   
   "textSize": {
-    "message": "Tekstgrootte",
+    "message": "Schriftgr\u00DF\u00F6e",
     "description": "Change text size, top of the new tab page"
   },
   
   "openPinned": {
-    "message": "Gebruik een vastgezet tabblad",
+    "message": "Ein angehefte Tab nutzen",
     "description": "Do you want a pinned tab or a normal tab"
   },
   
   "openNormal": {
-    "message": "Gebruik een normaal tabblad",
+    "message": "Ein Standardtab nutzen",
     "description": "Do you want a pinned tab or a normal tab"
   },
   
   "searchTitle": {
-    "message": "Zoeken",
+    "message": "Suchen",
     "description": "Search title"
   },
   
   "find": {
-    "message": "Zoek",
+    "message": "Suche",
     "description": "Button text for the search button"
   },
   
   "broughtToYou": {
-    "message": "<em>mogelijk gemaakt door</em> Lyrics for Chrome&#8482; <em>via</em> LyricWiki&#8482;.",
+    "message": "<em>erm\u00DFglicht durch</em> Lyrics f\u00FCr Chrome&#8482; <em>durch</em> LyricWiki&#8482;.",
     "description": "Message in the header in the new tab page"
   },
   
   "plusone_locale": {
-    "message": "nl",
+    "message": "de",
     "description": "Google Plus One can be translated by providing the right locale"
   },
   
   "plusOneThisPlease": {
-    "message": "dit project!",
+    "message": "das Projekt!",
     "description": "[+1] this proejct"
   },
   
   "flattr_locale": {
-    "message": "nl_NL",
+    "message": "de_DE",
     "description": "Flattr can be translated automatically by providing the right locale"
   },
   
   "changeLyrics": {
-    "message": "Andere lyrics",
+    "message": "Andere Lyrics",
     "description": "Message to change the current lyrics -- brings you to the search form"
   },
   
   "refreshLyrics": {
-    "message": "Vernieuw",
+    "message": "Neu laden",
     "description": "Message to refresh the lyrics"
   },
   
   "minimizeLyrics": {
-    "message": "Schuif omhoog/omlaag",
+    "message": "Oben/unten",
     "description": "Message to slide up or slide down the lyrics"
   },
   
   "largerText": {
-    "message": "Grotere letters",
+    "message": "Gr\u00DF\u00F6ere Schrift",
     "description": "Title attribute for larger text size"
   },
   
   "smallerText": {
-    "message": "Kleinere letters",
+    "message": "Kleinere Schrift",
     "description": "Title attribute for smaller text size"
   },
   
   "settingsSaved": {
-    "message": "Instellingen zijn opgeslagen!",
+    "message": "Die Einstellungen werden gespeichert!",
     "description": "Alert message when saving settings"
   },
   
   "omniboxHelp": {
-    "message": "Zoek op <match>titel</match>, <match>artiest</match> of <match>regel uit de lyrics</match>",
+    "message": "Geben Sie beschreibende <match>Titel</match>, <match>K\u00FCnstler</match> oder <match>Textzeile</match> ein",
     "description": "Text when 'lyrics' is typed in the omnibox"
   },
   
   "tryThePopup": {
-    "message": "Probeer de vernieuwde popup!",
+    "message": "Probiere die neue Pop-up aus!",
     "description": "Is shown above the lyrics in some cases"
   },
   
   "hide": {
-    "message": "verberg"
+    "message": "verbergen"
   },
   
   "new": {
-    "message": "vernieuwd!"
+    "message": "erneuert!"
   },
   
   "donate_text": {
-    "message": "Doneer voor verbeteringen! (:",
+    "message": "Auch die kleinste Spende hilft! (:",
     "description": "Under the YouTube lyrics currently"
   }
 }

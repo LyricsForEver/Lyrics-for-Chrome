@@ -21,6 +21,11 @@ function LyricsPlugin(){
   
   this.searchInterval = null;
   this.searchIntervalCallback = function(){};
+  this.songHasChanged = function(){
+    var titleFromPage = self.getTitleFromPage();
+    
+    return titleFromPage && titleFromPage !== self.currentLyrics.originalTitle;
+  };
   
   this.startSearchInterval = function(time){
     this.searchInterval = setInterval(this.searchIntervalCallback, time);

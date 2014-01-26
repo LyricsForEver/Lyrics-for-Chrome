@@ -16,38 +16,64 @@ function getSongInfoFromRawHtml(data){
 }
 
 function getLyrics(title, callback) {
-  var lyrics,
-      url = 'http://google.com/search?sourceid=navclient&btnI=1&q=site%3Alyrics.wikia.com+' + encodeURIComponent(' -"Page Ranking Information" ' + title);
-  
+  var lyrics;
+
   $.ajax({
-    url: url,
+    url: 'https://ajax.googleapis.com/ajax/services/search/web',
+    data: {
+      v:'1.0',
+      q: 'site:lyrics.wikia.com ' + title + ' -"Page Ranking Information"'
+    },
+    dataType: 'jsonp',
     type: 'GET',
-    success: function(data, status){
+    success: function(googleData, status){
       try {
       
         // Check if XHR completed succesfully
         if(status !== 'success'){
-          throw('Could not connect with LyricWiki');
+          throw('Could not connect with Google Search');
         }
-        
-        lyrics = getLyricsFromRawHtml(data);
-        
-        if(lyrics.length === 0){
-          throw('No lyrics found');
+
+        if(googleData.responseData.results.length == 0){
+          throw('No results via Google');
         }
-        
-        // Send info to Google Analytics
-        _gaq.push(['_trackEvent', 'Lyrics', 'Found']);
-        
-        // Locally track number of songs found
-        localStorage['found'] = +localStorage['found']+1;
-        
-        // Send lyrics back
-        callback({
-          success: true,
-          lyrics: lyrics,
-          providerTitle: getSongInfoFromRawHtml(data),
-          showNewPopupNotification: (+localStorage['found'] < 25 && localStorage['showNewPopupNotification'] === 'true' && localStorage['showLyricsType'] !== 'popup')
+
+        // Grab lyrics wikia song url
+        var songURL = googleData.responseData.results[0].unescapedUrl;
+
+        if(!songURL){
+          throw('Could not find a song URL');
+        }
+
+        $.ajax({
+          url: songURL,
+          type: 'GET',
+          success: function (songData, songStatus) {
+
+            if(songStatus !== 'success'){
+              throw('Could not connect with Lyrics Wikia');
+            }
+
+            lyrics = getLyricsFromRawHtml(songData);
+            
+            if(lyrics.length === 0){
+              throw('No lyrics found');
+            }
+            
+            // Send info to Google Analytics
+            _gaq.push(['_trackEvent', 'Lyrics', 'Found']);
+            
+            // Locally track number of songs found
+            localStorage['found'] = +localStorage['found']+1;
+            
+            // Send lyrics back
+            callback({
+              success: true,
+              lyrics: lyrics,
+              providerTitle: getSongInfoFromRawHtml(songData),
+              showNewPopupNotification: (+localStorage['found'] < 25 && localStorage['showNewPopupNotification'] === 'true' && localStorage['showLyricsType'] !== 'popup')
+            });
+          }
         });
       } catch(err) {
       

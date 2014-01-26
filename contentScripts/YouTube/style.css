@@ -1,4 +1,14 @@
+#ytl-outerwrapper {
+  margin-top: 10px;
+}
 
+#ytl-outerwrapper .watch-module-body {
+  padding-left: 4px;
+}
+
+#ytl-outerwrapper h4 {
+  padding-bottom: 10px;
+}
 
 #ytl-innerwrapper {
   min-height: 15px;
@@ -9,8 +19,8 @@
 }
 
 #ytl-remove-lyrics {
-  float: right;
-  margin: 6px 3px 0 0;
+  margin: 6px 0 0 3px;
+  cursor:pointer;
 }
 
 #ytl-search-lyrics {
@@ -24,15 +34,7 @@
 
 #ytl-lyrics {
   padding-right: 10px;
-}
-
-.clearfix:after {
-	visibility: hidden;
-	display: block;
-	font-size: 0;
-	content: " ";
-	clear: both;
-	height: 0;
+  line-height: 17px;
 }
 
 .newYouTube #ytl-outerwrapper {
@@ -88,4 +90,32 @@
 .lfc-notification-hide:hover {
   background: #BB7;
   color: white;
+}
+
+.ytl-hor-rule {
+  margin: 0;
+  position: relative;
+  height: 0;
+  border-top: 1px solid #DDD;
+  border-bottom: 1px solid #FFF;
+  overflow: hidden;
+  margin-bottom: 10px;
+  width: 94%;
+}
+
+.ytl-donate-text {
+  display: inline-block;
+  font-size: smaller;
+  position: relative;
+  top: -6px;
+  padding-left: 2px;
+}
+
+#flattrButtonWrap {
+  padding-top: 10px;
+}
+
+#flattrButtonWrap form {
+  display: inline-block; 
+  width: 76px;
 }

@@ -1,50 +1,36 @@
-// since v1.3: make it work for the NEW YouTube
-LyricsPlugin.prototype.newYouTube = false;
-
 LyricsPlugin.prototype.setTitleFromPage = function(){
   // Set the video's title
-  if(this.newYouTube){
-    this.currentLyrics.title = $('#eow-title').text();
-  } else {
-    this.currentLyrics.title = $('#watch-headline-title').text();
-  }
+  this.currentLyrics.title = $('#watch-headline-title').text();
   
   return this.currentLyrics._title;
 };
 
 LyricsPlugin.prototype.init = function(){
   var lyricsHTML, lyricsObj, self = this;
-  
-  // Check if you are currently on the NEW YouTube
-  this.newYouTube = $('.watch-sidecol').length !== 0;
 
   // Set the video's title
   this.setTitleFromPage();
   
   this.hasMaxHeight = true;
-  
-  if(this.newYouTube){
-    this.maxHeight = 313;
-  } else {
-    this.maxHeight = 426;
-  }
+  this.maxHeight = 313;
   
   lyricsHTML = [
     '<div id="ytl-outerwrapper" class="watch-module">',
       '<div class="watch-module-body">',
       
-        // clicking this image will hide the lyrics from the page
-        '<img src="//s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" id="ytl-remove-lyrics" ',
-          'alt="', chrome.i18n.getMessage('removeLyrics'), '"',
-          'title="', chrome.i18n.getMessage('removeLyrics'), '"',
-        '/>',
-        
-        '<h4 class="first clearfix">',
+        '<h4>',
           '<a href="#" id="lfc-open-in-new-tab">Lyrics</a> ',
           '<a href="#" id="lfc-change-lyrics">(',
             chrome.i18n.getMessage('changeLyrics'),
           ')</a>',
+          // clicking this image will hide the lyrics from the page
+          '<img src="', chrome.extension.getURL('contentScripts/YouTube/close.png'), '" id="ytl-remove-lyrics" ',
+            'alt="', chrome.i18n.getMessage('removeLyrics'), '"',
+            'title="', chrome.i18n.getMessage('removeLyrics'), '"',
+          '/>',
         '</h4>',
+        
+        '<div class="ytl-hor-rule"></div>',
         
         '<div id="ytl-innerwrapper">',
         
@@ -65,6 +51,12 @@ LyricsPlugin.prototype.init = function(){
           '<form id="ytl-search-form" action="#">',
             '<p><input type="text" id="ytl-search-lyrics" name="ytl-search-lyrics" /></p>',
           '</form>',
+        '</div>',
+          
+        '<div id="flattrButtonWrap">',
+          '<a href="http://www.pledgie.com/campaigns/18436"><img alt="Click here to lend your support to: Lyrics for Google Chrome\u2122 and make a donation at www.pledgie.com !" src="http://www.pledgie.com/campaigns/18436.png?skin_name=chrome" border="0" /></a>',
+          '<span class="ytl-donate-text">', chrome.i18n.getMessage('donate_text'), '</span>',
+          '<div class="ytl-hor-rule"></div>',
         '</div>',
       '</div>',
     '</div>'
@@ -96,6 +88,7 @@ LyricsPlugin.prototype.init = function(){
   this.elements.flashMessage = $('#lfc-flash-message', lyricsObject);
   this.elements.flashDescription = $('#lfc-flash-description', lyricsObject);
   this.elements.flashWrap = $('#lfc-flash-wrap', lyricsObject);
+  this.elements.donateWrap = $('#flattrButtonWrap', lyricsObject);
   
   // Make sure you hide the outer wrapper in first instance
   this.hide();
@@ -112,24 +105,10 @@ LyricsPlugin.prototype.init = function(){
     return false;
   });
   
-  // Add it to the side bar
-  if(this.newYouTube){
-    // New youtube
-    $(document.body).addClass('newYouTube');
-    lyricsObject.addClass('watch-panel-section');
-    this.elements.removeEl.attr('src', '//s.ytimg.com/yt/img/watch6-icon-close-vflZt2x4c.png');
-    //$('.watch-sidecol:first').prepend(lyricsObject);
-    var watchChannelBrandDiv = $('#watch-channel-brand-div');
-    if(watchChannelBrandDiv.length === 0){
-      watchChannelBrandDiv = $('<div/>').addClass('watch-module').attr('id', 'watch-channel-brand-div');
-      $('#watch-video').append(watchChannelBrandDiv);
-    }
-    watchChannelBrandDiv.prepend(lyricsObject).find('#google_companion_ad_div').remove();
-  } else {
-    // Old youtube
-    this.elements.removeEl.addClass('master-sprite img-php-close-button');
-    $('#watch-sidebar').prepend(lyricsObject);
-  }
+  
+  this.elements.removeEl.attr('src', '//s.ytimg.com/yt/img/watch6-icon-close-vflZt2x4c.png');
+  $('#watch7-sidebar').prepend(lyricsObject);
+  
   
   $('#lfc-open-in-new-tab', lyricsObject).click(function(){
     chrome.extension.sendRequest({
@@ -157,16 +136,12 @@ LyricsPlugin.prototype.init = function(){
 };
 
 LyricsPlugin.prototype.show = function(){
-  $('#watch-video').addClass('has-ad');
-  $('#watch-channel-brand-div').show().addClass('lfc-explicit-show');
   this.getTitleFromPage();
   this.elements.outerWrapper.show();
   this.isVisible = true;
 };
 
 LyricsPlugin.prototype.hide = function(){
-  $('#watch-video').removeClass('has-ad');
-  $('#watch-channel-brand-div').hide().removeClass('lfc-explicit-show');
   this.hideSections();
   this.elements.outerWrapper.hide();
   this.isVisible = false;
