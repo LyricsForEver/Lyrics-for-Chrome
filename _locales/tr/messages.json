@@ -1,14 +1,17 @@
 ﻿{
   "extName": {
-    "message": "Lyrics for Google Chrome\u2122",
+    "message": "Lyrics for Google Chrome™",
     "description": "Title of the plugin"
   },
   
   "extDescription": {
-    "message": "YouTube\u2122, Last.fm\u2122, Grooveshark\u2122 ve Google Music\u2122'de Popuplar'a gerek duymadan şarkı sözlerine ulaş",
+    "message": "YouTube™, Last.fm™, Grooveshark™ ve Google Play™'de Popup'lara gerek duymadan şarkı sözlerine ulaş",
     "description": "Description of the plugin"
   },
-  
+  "flattr_locale": {
+    "message": "en_EN",
+    "description": "Flattr can be translated automatically by providing the right locale"
+  },
   "pageActionTitle": {
     "message": "Şarkı sözlerini bul",
     "description": "Text in small popup when you hover the page action icon"
@@ -160,7 +163,7 @@
   },
   
   "omniboxHelp": {
-    "message": "Search for a <match>song title</match>, <match>artist</match> or <match>part</match> of the lyrics",
+    "message": "Aranan  <match>Şarkı adı</match>, <match>Sanatçı</match> ve <match>Bulunan</match> şarkı sözleri..",
     "description": "Text when 'lyrics' is typed in the omnibox"
   },
   
@@ -170,10 +173,14 @@
   },
   
   "hide": {
-    "message": "Gizli"
+    "message": "Gizle"
   },
   
   "new": {
     "message": "Yeni!"
+  },
+  "donate_text": {
+    "message": "Katkıda bulunmak istermisin? (:",
+    "description": "Under the YouTube lyrics currently"
   }
 }
