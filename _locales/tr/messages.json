@@ -1,0 +1,186 @@
+﻿{
+  "extName": {
+    "message": "Lyrics for Google Chrome™",
+    "description": "Title of the plugin"
+  },
+  
+  "extDescription": {
+    "message": "YouTube™, Last.fm™, Grooveshark™ ve Google Play™'de Popup'lara gerek duymadan şarkı sözlerine ulaş",
+    "description": "Description of the plugin"
+  },
+  "flattr_locale": {
+    "message": "en_EN",
+    "description": "Flattr can be translated automatically by providing the right locale"
+  },
+  "pageActionTitle": {
+    "message": "Şarkı sözlerini bul",
+    "description": "Text in small popup when you hover the page action icon"
+  },
+  
+  "loadingMessage": {
+    "message": "Sözler yükleniyor, bir saniye..",
+    "description": "Message when a lyrics is loading"
+  },
+  
+  "copyrightInfo": {
+    "message": "Unutmayın :Hakları şarkı sahip aittir",
+    "description": "First line of the copyright text after the lyrics"
+  },
+  
+  "copyrightCourtesy": {
+    "message": "Copyright by <a href=\"http://lyrics.wikia.com\" title=\"LyricsWiki\">LyricWiki</a>",
+    "description": "Second line of the copyright with a link to LyricsWiki"
+  },
+  
+  "notFound": {
+    "message": "Şarkı sözü bulunumadı",
+    "description": "Message shown when no lyrics was found"
+  },
+  
+  "notFoundHelp": {
+    "message": "Sanatçı <b>İsmi</b> ve Şarkı <b>Adını</b> girerek tekrar enter'a basın..",
+    "description": "Show a hint when no lyrics were found"
+  },
+  
+  "searchHelp": {
+    "message": "Sanatçı <b>İsmi</b> ve Şarkı <b>Adını</b> girerek enter'a basın.. ",
+    "description": "Show a hint when searching for lyrics"
+  },
+  
+  "removeLyrics": {
+    "message": "Şarkı sözünü kaldır",
+    "description": "The remove from page text"
+  },
+  
+  "settingsTitle": {
+    "message": "Lyrics for Chrome",
+    "description": "Title of the settings page"
+  },
+  
+  "settingsLyrics": {
+    "message": "Şarkı sözlerini nasıl görüntülemek istersiniz?",
+    "description": "Option of settings page: lyrics display"
+  },
+  
+  "addToPage": {
+    "message": "Sayfa içerisine eklenerek görüntüleme",
+    "description": "Option 1: add lyrics to the page"
+  },
+  
+  "openInNewTab": {
+    "message": "Yeni sekmede görüntüleme",
+    "description": "Option 2: open lyrics in a new tab page"
+  },
+  
+  "inPopup": {
+    "message": "Popup içerisinde görüntüleme",
+    "description": "Option 3: open lyrics in a popup"
+  },
+  
+  "ok": {
+    "message": "Tamam",
+    "description": "Confirm button"
+  },
+  
+  "cancel": {
+    "message": "İptal",
+    "description": "Cancel button"
+  },
+  
+  "underConstruction": {
+    "message": "Not:Bu ​​değişikliklerin şu anda herhangi bir etkisi olmayacaktır.Eklentinin Bu bölümü yapım aşamasındadır.Eklentinin iyileştirilmesi hakkında iyi fikirleriniz varsa,Google Webstore'daki yorum alanına yorum yapmaktan çekinmeyin, Teşekkürler!",
+    "description": "Under construction message in the options page."
+  },
+  
+  "textSize": {
+    "message": "Yazı Boyutu",
+    "description": "Change text size, top of the new tab page"
+  },
+  
+  "openPinned": {
+    "message": "Sabit sekmede oluştur",
+    "description": "Do you want a pinned tab or a normal tab"
+  },
+  
+  "openNormal": {
+    "message": "Yeni bir sekmede oluştur",
+    "description": "Do you want a pinned tab or a normal tab"
+  },
+  
+  "searchTitle": {
+    "message": "Şarkı sözü ara",
+    "description": "Search title"
+  },
+  
+  "find": {
+    "message": "Ara",
+    "description": "Button text for the search button"
+  },
+  
+  "broughtToYou": {
+    "message": " Lyrics for Chrome&#8482; <em>via</em> LyricWiki&#8482;.<em>tarafından oluşturuldu..</em>",
+    "description": "Message in the header in the new tab page"
+  },
+  
+  "plusone_locale": {
+    "message": "en",
+    "description": "Google Plus One can be translated by providing the right locale"
+  },
+  
+  "plusOneThisPlease": {
+    "message": "Bu proje!",
+    "description": "[+1] this proejct"
+  },
+  
+  "changeLyrics": {
+    "message": "Şarkı sözünü değiştir..",
+    "description": "Message to change the current lyrics -- brings you to the search form"
+  },
+  
+  "refreshLyrics": {
+    "message": "Yenile",
+    "description": "Message to refresh the lyrics"
+  },
+  
+  "minimizeLyrics": {
+    "message": "Yukarı/Aşağı kayma",
+    "description": "Message to slide up or slide down the lyrics"
+  },
+  
+  "largerText": {
+    "message": "Büyük metin boyutu",
+    "description": "Title attribute for larger text size"
+  },
+  
+  "smallerText": {
+    "message": "Küçük metin boyutu",
+    "description": "Title attribute for smaller text size"
+  },
+  
+  "settingsSaved": {
+    "message": "Ayarlar kaydedildi!",
+    "description": "Alert message when saving settings"
+  },
+  
+  "omniboxHelp": {
+    "message": "Aranan  <match>Şarkı adı</match>, <match>Sanatçı</match> ve <match>Bulunan</match> şarkı sözleri..",
+    "description": "Text when 'lyrics' is typed in the omnibox"
+  },
+  
+  "tryThePopup": {
+    "message": "Bir de popup'u denemelesin..!",
+    "description": "Is shown above the lyrics in some cases"
+  },
+  
+  "hide": {
+    "message": "Gizle"
+  },
+  
+  "new": {
+    "message": "Yeni!"
+  },
+  "donate_text": {
+    "message": "Katkıda bulunmak istermisin? (:",
+    "description": "Under the YouTube lyrics currently"
+  }
+}
